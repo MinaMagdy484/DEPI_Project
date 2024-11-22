@@ -1,0 +1,22 @@
+﻿@{
+    ViewData["Title"] = "Instructor Dashboard";
+}
+
+<h2>Welcome to your Dashboard</h2>
+
+<p>Hello, @User.Identity.Name! Here you can manage your courses and profile.</p>
+
+<div>
+    <h3>Your Profile</h3>
+    <p>
+        <a asp-action="Profile" class="btn btn-primary">View Profile</a>
+    </p>
+</div>
+
+<div>
+    <h3>Your Courses</h3>
+    <p>
+        <a asp-action="Courses" class="btn btn-secondary">View Courses</a>
+        <a asp-action="CreateCourse" class="btn btn-success">Create New Course</a>
+    </p>
+</div>

@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Course>
+
+<link href="~/css/courses.css" rel="stylesheet" />
+<h2>Your Courses</h2>
+<a class="btn btn-success mb-4" asp-action="EnrollCourse" asp-controller="StudentAdministration">Enroll In Course</a>
+
+<div class="course-list">
+    @foreach (var item in Model)
+    {
+        <div class="course-item">
+            <img src="~/img/cat-1.jpg" alt="Course Image" class="course-img" />
+            <div class="course-info">
+                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                <p><strong>Instructor:</strong> @Html.DisplayFor(modelItem => item.Instructor.Name)</p>
+                <a asp-action="CourseDetails" asp-route-id="@item.ID" class="btn btn-info">Details</a>
+            </div>
+        </div>
+    }
+</div>
+
+<a asp-action="Profile" asp-controller="StudentAdministration" class="btn btn-primary">Back To Profile</a>

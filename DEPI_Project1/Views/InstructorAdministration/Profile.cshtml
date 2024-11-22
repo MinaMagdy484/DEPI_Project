@@ -1,0 +1,35 @@
+﻿@model Instructor
+
+@{
+    ViewData["Title"] = "Profile";
+}
+
+<h2>@Model.Name's Profile</h2>
+
+<div>
+    <h4>Instructor</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">Name</dt>
+        <dd class="col-sm-10">@Model.Name</dd>
+
+        <dt class="col-sm-2">Email</dt>
+        <dd class="col-sm-10">@Model.Email</dd>
+
+        <dt class="col-sm-2">Courses</dt>
+        <dd class="col-sm-10">
+            <ul>
+                @foreach (var course in Model.Courses)
+                {
+                    <li>@course.Name</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div>
+
+<!-- Add the Course Details Button -->
+<div>
+
+    <a asp-action="Index" asp-controller="InstructorAdministration" class="btn btn-primary">View My Courses</a>
+</div>

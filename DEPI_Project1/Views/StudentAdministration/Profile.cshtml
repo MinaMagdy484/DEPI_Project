@@ -1,0 +1,27 @@
+﻿@model Student
+
+<h2>Profile</h2>
+
+<div>
+    <h3>@Model.Name</h3>
+    <p>Email: @Model.Email</p>
+
+    @if (Model.Enrollments != null)
+    {
+    <h4>Enrolled Courses:</h4>
+    <ul>
+        @foreach (var enrollment in Model.Enrollments)
+        {
+            <hr>
+            <li>
+                <strong>Course Name:</strong> @enrollment.Course.Name <br />
+                <strong>Description:</strong> @enrollment.Course.Description <br />
+                
+            </li>
+            <hr>
+        }
+    </ul>
+    }
+    <a href="@Url.Action("Courses", "StudentAdministration")" class="btn btn-primary">View All Courses</a>
+    <a class="btn btn-success" asp-action="EnrollCourse" asp-controller="StudentAdministration" >Enroll In Course</a>
+</div>

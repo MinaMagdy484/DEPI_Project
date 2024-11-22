@@ -1,0 +1,17 @@
+﻿@model IDCourseListViewModel
+@{
+    ViewData["Title"] = "EnrollCourse";
+}
+
+<h1>EnrollCourse</h1>
+<form asp-action="SaveEnroll" asp-controller="StudentAdministration">
+    <div>
+        <select asp-for="CourseID" asp-items="Model.Courses" class="form form-control">
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Enroll" class="btn btn-success"/>
+    </div>
+</form>
+<a asp-action="Courses" asp-controller="StudentAdministration">Back To Courses</a>
+

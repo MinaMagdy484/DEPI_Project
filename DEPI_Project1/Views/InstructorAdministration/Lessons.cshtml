@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Lesson>
+
+@{
+    ViewData["Title"] = "Lessons";
+}
+
+<h2>Lessons</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.First().VideoURL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().LessonContent)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().QuizID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.First().Course.Name)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VideoURL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LessonContent)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.QuizID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Course.Name)
+                </td>
+                <td>
+                    <a asp-action="EditLesson" asp-route-id="@item.ID" class="btn btn-warning">Edit</a> |
+                    <a asp-action="DeleteLesson" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-action="CreateLesson" asp-route-courseId="@ViewData["CourseID"]" class="btn btn-primary">Create New Lesson</a>
+</div>

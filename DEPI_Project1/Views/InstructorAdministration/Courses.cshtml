@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Course>
+<link href="~/css/instcourses.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "All Courses";
+}
+
+<h1>All Courses by @User.Identity.Name</h1>
+
+<p>
+    <a class="btn btn-success" asp-action="CreateCourse">Create New Course</a>
+</p>
+
+<div class="course-list">
+    @foreach (var item in Model)
+    {
+        <div class="course-item">
+            <img src="~/img/cat-4.jpg" alt="Course Image" class="course-img" />
+            <div class="course-info">
+                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
+                <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                <p><strong>Date:</strong> @Html.DisplayFor(modelItem => item.Date)</p>
+                <p><strong>Instructor:</strong> @Html.DisplayFor(modelItem => item.Instructor.Name)</p>
+                <div class="course-actions">
+                    <a asp-action="EditCourse" asp-route-id="@item.ID" class="btn btn-primary">Edit</a>
+                    <a asp-action="CourseDetails" asp-route-id="@item.ID" class="btn btn-info">Details</a>
+                    <a asp-action="DeleteCourse" asp-route-id="@item.ID" class="btn btn-danger">Delete</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>

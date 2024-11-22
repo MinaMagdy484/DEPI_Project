@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Course>
+<link href="~/css/courses.css" rel="stylesheet" />
+@{
+    ViewData["Title"] = "Available Courses";
+}
+
+<h1>Available Courses</h1>
+
+<div class="course-list">
+    @foreach (var course in Model)
+    {
+        <div class="course-item">
+            <img src="~/img/cat-1.jpg" alt="Course Image" class="course-img" />
+            <div class="course-info">
+                <h3>@Html.DisplayFor(modelItem => course.Name)</h3>
+                <p><strong>Description:</strong> @Html.DisplayFor(modelItem => course.Description)</p>
+                <p><strong>Date:</strong> @Html.DisplayFor(modelItem => course.Date)</p>
+                <p><strong>Instructor:</strong> @Html.DisplayFor(modelItem => course.Instructor.Name)</p>
+                <a asp-action="Details" asp-route-id="@course.ID" class="btn btn-info">Details</a>
+            </div>
+        </div>
+    }
+</div>

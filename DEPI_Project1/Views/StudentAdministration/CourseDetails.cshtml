@@ -1,0 +1,50 @@
+﻿@model Course
+<link href="~/css/coursedetails.css" rel="stylesheet" />
+<div class="course-details">
+    <div class="course-header">
+        <img src="~/img/cat-4.jpg" alt="Course Image" class="course-img" />
+        <h2>@Model.Name</h2>
+    </div>
+
+    <div class="course-info">
+        <h4>Course Information</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-3">Description:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Description)</dd>
+
+            <dt class="col-sm-3">Date:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Date)</dd>
+
+            <dt class="col-sm-3">Instructor:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Instructor.Name)</dd>
+        </dl>
+    </div>
+
+    <div class="lessons-section">
+        <h4>Lessons</h4>
+        <div class="lesson-cards">
+            @foreach (var lesson in Model.Lessons)
+            {
+                <div class="lesson-card">
+                    <div class="lesson-video">
+                        @if (lesson.VideoURL.Contains("drive.google.com"))
+                        {
+                            <iframe src="@lesson.VideoURL.Replace("view", "preview")" width="100%" height="200"></iframe>
+                        }
+                        else
+                        {
+                            <a href="@lesson.VideoURL" class="lesson-video-link">Watch Video</a>
+                        }
+                    </div>
+                    <div class="lesson-content">
+                        <p><strong>Content:</strong> @lesson.LessonContent</p>
+                        <p><strong>Quiz ID:</strong> @lesson.QuizID</p>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <a asp-action="Courses" class="btn btn-primary">Back to Courses</a>
+</div>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mlogin.css">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>modern login</title>
+</head>
+
+<body>
+    <div class="first" id="first">
+        <div class="login">
+            <h2>Sign In</h2>
+            <div class="icons">
+                <i class='bx bxl-google-plus'></i>
+                <i class='bx bxl-facebook'></i>
+                <i class='bx bxl-github'></i>
+                <i class='bx bxl-linkedin'></i>
+            </div>
+            <p id="p1">or use email and password</p>
+            <div class="data">
+                <input type="email" placeholder="username">
+            </div>
+            <div class="data">
+                <input type="password" placeholder="password">
+            </div>
+            <p id="p1">forget password?<a href="#">Rest password</a></p>
+            <button type="button" id="b1">Sign In</button>
+        </div>
+        <div class="signup">
+            <p id="p2">Dont have an occount?</p>
+            <p id="p3">You can regiester for free just fill some simple
+                fields and welcome in our website !</p>
+                <button type="button" id="b2" onclick=display()>Register</button>
+        </div>
+    </div>
+    <div class="first" id="second">
+        <div class="signup">
+            <p id="p2">already have an account?</p>
+            <p id="p3">Sign in and get our new features we are wating for 
+                you dont miss the chance!</p>
+                <button type="button" id="b2" onclick=display2()>Sign in</button>
+        </div>
+        <div class="login">
+            <h2>Sign up</h2>
+        
+            <div class="datan">
+                <input type="text" placeholder="first name">
+                <input type="text" placeholder="second name">
+            </div>
+            <div class="datan">
+                <input type="date" >
+                <input type="text" placeholder="Gender">
+            </div>
+            <div class="datae">
+                <input type="email" placeholder="email">
+                <input type="password" placeholder="password">
+                <input type="password" placeholder=" confirm password">
+            </div>
+            <p id="p1">have trouble?<a href="#">Contact us</a></p>
+            <button type="button" id="b1">Sign up</button>
+        </div>
+    </div>
+    
+</body>
+<script>
+    var sun = document.getElementById('i3');
+    var moon = document.getElementById('i2');
+    var moonbutton = document.getElementById('b2');
+    var sunbutton = document.getElementById('b3');
+    var body = document.body;
+
+    function display() {
+        moon.style.display = 'none';
+        sun.style.display = 'block';
+        moonbutton.style.display = 'none';
+        sunbutton.style.display = 'block';
+        body.classList.add('dark-mode');
+    }
+
+    function display1() {
+        moon.style.display = 'block';
+        sun.style.display = 'none';
+        moonbutton.style.display = 'block';
+        sunbutton.style.display = 'none';
+        body.classList.remove('dark-mode');
+    }
+
+
+
+</script>
+
+</html>
